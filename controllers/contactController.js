@@ -1,50 +1,51 @@
+const asyncHandler = required("express-async-handler");
 //controllers in this file
 //@desc GET all contacts.
 //@route GET /api/contacts
 //@access Public.... will let be changed to private during JWT
-const getAllContacts = async(req, res) => {
+const getAllContacts = asyncHandler(async (req, res) => {
   res.json({ message: "Grab all contacts" });
-};
+});
 
 //controllers in this file
 //@desc Create a contact.
 //@route POST /api/contacts
 //@access Public.... will let be changed to private during JWT
-const createContact = async(req, res)=>{
-    console.log('The response is :', req.body)
-    //error handling
-    const {email, name} = req.body;
-    if(!email || !name){
-        res.status(400);
-        console.error('All fields are mandatory!')
-    }
-    
-     res.json({ message: "Create Contact" });
-} 
+const createContact = asyncHandler(async (req, res) => {
+  console.log("The response is :", req.body);
+  //error handling
+  const { email, name } = req.body;
+  if (!email || !name) {
+    res.status(400);
+    console.error("All fields are mandatory!");
+  }
+
+  res.json({ message: "Create Contact" });
+});
 
 //controllers in this file
 //@desc GET a contact.
 //@route GET /api/contacts/:id
 //@access Public.... will let be changed to private during JWT
-const getAContact = async(req, res)=>{
-     res.json({ message: `Get this Contact ${req.params.id}` });
-}
+const getAContact = asyncHandler(async (req, res) => {
+  res.json({ message: `Get this Contact ${req.params.id}` });
+});
 
 //controllers in this file
 //@desc Update a contact.
 //@route PUT /api/contacts/:id
 //@access Public.... will let be changed to private during JWT
-const updateContact = async(req, res)=>{
-    res.json({ message: `This Contact ${req.params.id} has been updated` });
-}
+const updateContact = asyncHandler(async (req, res) => {
+  res.json({ message: `This Contact ${req.params.id} has been updated` });
+});
 
 //controllers in this file
 //@desc Delete a contact.
 //@route DELETE /api/contacts/:id
 //@access Public.... will let be changed to private during JWT
-const deleteContact = async(req, res)=>{
-     res.json({ message: `Contact ${req.params.id} has been deleted!` });
-}
+const deleteContact = asyncHandler(async (req, res) => {
+  res.json({ message: `Contact ${req.params.id} has been deleted!` });
+});
 
 //exports of controller methods with logic to the routes 
 module.exports = {
