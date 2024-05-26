@@ -2,7 +2,7 @@
 //@desc GET all contacts.
 //@route GET /api/contacts
 //@access Public.... will let be changed to private during JWT
-const getAllContacts = (req, res) => {
+const getAllContacts = async(req, res) => {
   res.json({ message: "Grab all contacts" });
 };
 
@@ -10,7 +10,7 @@ const getAllContacts = (req, res) => {
 //@desc Create a contact.
 //@route POST /api/contacts
 //@access Public.... will let be changed to private during JWT
-const createContact = (req, res)=>{
+const createContact = async(req, res)=>{
     console.log('The response is :', req.body)
     //error handling
     const {email, name} = req.body;
@@ -26,7 +26,7 @@ const createContact = (req, res)=>{
 //@desc GET a contact.
 //@route GET /api/contacts/:id
 //@access Public.... will let be changed to private during JWT
-const getAContact = (req, res)=>{
+const getAContact = async(req, res)=>{
      res.json({ message: `Get this Contact ${req.params.id}` });
 }
 
@@ -34,7 +34,7 @@ const getAContact = (req, res)=>{
 //@desc Update a contact.
 //@route PUT /api/contacts/:id
 //@access Public.... will let be changed to private during JWT
-const updateContact = (req, res)=>{
+const updateContact = async(req, res)=>{
     res.json({ message: `This Contact ${req.params.id} has been updated` });
 }
 
@@ -42,7 +42,7 @@ const updateContact = (req, res)=>{
 //@desc Delete a contact.
 //@route DELETE /api/contacts/:id
 //@access Public.... will let be changed to private during JWT
-const deleteContact = (req, res)=>{
+const deleteContact = async(req, res)=>{
      res.json({ message: `Contact ${req.params.id} has been deleted!` });
 }
 
